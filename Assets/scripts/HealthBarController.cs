@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthBarController : MonoBehaviour
 {
     private Image healthBar;
-    private float healthMax = 0;
+    // private float healthMax = 0;
     private float healthCurrent;
     private int obstacleCount;
 
@@ -15,22 +15,13 @@ public class HealthBarController : MonoBehaviour
     void Start()
     {
         winTextObj.SetActive(false);
-
         healthBar = GetComponent<Image>();
+        healthBar.fillAmount = 0;
 
-        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Enemy");
-        obstacleCount = obstacles.Length;
-        
-        for (int i = 0; i < obstacleCount; i++) 
-        {
-            ObstacleController obctrl = obstacles[i].GetComponent<ObstacleController>();
-            healthMax += obctrl.health;        
-        }
-
-        healthCurrent = healthMax;
+        // healthCurrent = healthMax;
     }
 
-    void Update()
+    /*void Update()
     {
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Enemy");
         obstacleCount = obstacles.Length;
@@ -49,6 +40,38 @@ public class HealthBarController : MonoBehaviour
         {
             winTextObj.SetActive(true);
         }
+    }*/
+
+    void Update()
+    {
+        
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Enemy");
+        obstacleCount = obstacles.Length;
+        
+        for (int i = 0; i < obstacleCount; i++) 
+        {
+            ObstacleController obctrl = obstacles[i].GetComponent<ObstacleController>();
+            //healthMax += obctrl.health;  
+            if (obctrl.clicked == true)
+            {
+                healthCurrent = obctrl.health;
+                healthBar.fillAmount = healthCurrent / 100;
+                obctrl.clicked = false;
+
+                if (healthCurrent == 0) {
+                    Destroy(obctrl.gameObject);
+                }
+ 
+                
+            }
+        }        
+
+        if (obstacleCount == 0) 
+        {
+            winTextObj.SetActive(true);
+        }
+
+
     }
 
 

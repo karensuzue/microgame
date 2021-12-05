@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
-    public int health;   
+    public int health;  
+    public bool clicked;
+
     private void Start()
     {
         health = 100;
+        clicked = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -15,12 +18,7 @@ public class ObstacleController : MonoBehaviour
         if (other.tag == "Bullet") 
         {
             health -= 10;
-            
-            if (health <= 0) 
-            { 
-                // Destroys when health is 0 
-                Destroy(gameObject); 
-            }
+            clicked = true;
         }
     }
 }
