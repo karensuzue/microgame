@@ -1,10 +1,4 @@
-How is the game played?
-What are the features?
-Describes the unique feature used in your game
-What is it?
-What is it used for?
-How does it fit with your game?
-What resource(s) did you use?
+NEED TO UPDATE GAME MECHANICS/UNIQUE FEATURES 
 
 # Shooter Microgame
 ## Game Mechanics
