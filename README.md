@@ -1,5 +1,3 @@
-NEED TO UPDATE GAME MECHANICS/UNIQUE FEATURES 
-
 # Shooter Microgame
 ## Game Mechanics
 This game is an experimental shooter that expands on the original Rollball example. The game is played in third person perspective and allows players to shoot bullets in one direction towards obstacles around the map. The goal of the game is to make all of these obstacles disappear, as well as reduce their collective health values to 0. This is the only winning condition, and there is no loss condition.
